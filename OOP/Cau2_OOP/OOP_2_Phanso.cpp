@@ -30,6 +30,8 @@ public:
     friend PhanSo operator-(PhanSo a, PhanSo b);
     friend istream& operator>>(istream& is, PhanSo& x);
     friend ostream& operator<<(ostream& os, PhanSo x);
+    PhanSo& operator++();
+    PhanSo operator++(int);
 };
 
 PhanSo operator+(PhanSo a, PhanSo b)
@@ -62,9 +64,21 @@ ostream& operator<<(ostream& os, PhanSo x)
     return os;
 }
 
+PhanSo& PhanSo::operator++()
+{
+    tuSo += mauSo;
+    return *this;
+}
+
+PhanSo PhanSo::operator++(int)
+{
+    PhanSo tmp = *this;
+    ++(*this);
+    return tmp;
+}
+
 int main()
 {
     cout << "Hello World!\n";
     return 0;
 }
-
