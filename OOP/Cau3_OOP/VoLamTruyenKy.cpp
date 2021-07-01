@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
-
 using namespace std;
+
 class Base
 {
 private:
@@ -88,18 +88,7 @@ bool Base::tinhTuongtac(Base &b)
 	{
 		STtuongtacAB = this->getST() * 110 / 100;
 	}
-	else
-	{
-		if (( b.getHe() == 2&& this->He == 0 ) ||
-			(b.getHe() == 3 && this->He == 1 ) ||
-			( b.getHe() == 1&& this->He == 2 ) ||
-			( b.getHe() == 4&& this->He == 3) ||
-			( b.getHe() == 0&& this->He == 4))
-
-		{
-			STtuongtacBA = this->getST() * 110 / 100;
-		}
-	}
+	
 
 	if (STtuongtacAB > STtuongtacBA)
 		return true;
