@@ -1,7 +1,9 @@
 # OOP-UIT
 Solving OOP Examination at UIT from Sugar (anhkiet1227)
 
-Here is the exam: https://bit.ly/dethiOOP
+Here is the exam: 
+https://bit.ly/dethiOOP
+bitly.com/dethiOOP
 
 from The Training Group - SE
 
