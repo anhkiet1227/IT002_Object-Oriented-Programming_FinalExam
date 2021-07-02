@@ -115,9 +115,9 @@ int main()
         cout << "1. Sinh vien cao dang  2. Sinh vien dai hoc\n";
         cout << "Nhap loai sinh vien: "; cin >> loai;
         if (loai == 1)
-            arr[i] = new SinhVienCaoDang;
+            arr[i] = new SinhVienCaoDang();
         else 
-            arr[i] = new SinhVienDaiHoc;
+            arr[i] = new SinhVienDaiHoc();
         arr[i]->Nhap();
     }
     //cau 2
