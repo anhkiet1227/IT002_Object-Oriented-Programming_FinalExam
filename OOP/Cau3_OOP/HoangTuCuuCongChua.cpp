@@ -2,9 +2,11 @@
 
 using namespace std;
 
-class Cong{
+class Cong
+{
 protected:
     int loai;
+
 public:
     Cong() {}
     ~Cong() {}
@@ -18,10 +20,12 @@ class CongTien : public Cong
 protected:
     int gia;
     int hang;
+
 public:
     CongTien() {}
     ~CongTien() {}
-    void Nhap() {
+    void Nhap()
+    {
         cout << "Nhap gia: ";
         cin >> gia;
         cout << "Nhap hang: ";
@@ -34,12 +38,14 @@ class CongTriTue : public Cong
 {
 protected:
     int tritue;
+
 public:
     CongTriTue() {}
     ~CongTriTue() {}
-    void Nhap() {
+    void Nhap()
+    {
         cout << "Tri tue cua nha hien triet: ";
-        cin >> tritue; 
+        cin >> tritue;
     }
     int Xuat() { return tritue; }
 };
@@ -48,10 +54,12 @@ class CongSucManh : public Cong
 {
 protected:
     int sucmanh;
+
 public:
     CongSucManh() {}
     ~CongSucManh() {}
-    void Nhap(){
+    void Nhap()
+    {
         cout << "Suc manh cua Dung Si: ";
         cin >> sucmanh;
     }
@@ -65,7 +73,7 @@ int main()
     int SoLuongCong;
     cout << "Nhap so luong cong: ";
     cin >> SoLuongCong;
-    Cong* arr[SoLuongCong];
+    Cong *arr[SoLuongCong];
     for (int i = 0; i < SoLuongCong; ++i)
     {
         int loai;
@@ -73,7 +81,7 @@ int main()
         if (loai == 1)
             arr[i] = new CongTien();
         if (loai == 2)
-            arr[i] =  new CongTriTue();
+            arr[i] = new CongTriTue();
         if (loai == 3)
             arr[i] = new CongSucManh();
         arr[i]->Nhap();
@@ -93,7 +101,7 @@ int main()
                 cout << "hoang tu da chet tai: " << i + 1;
                 break;
             }
-            else 
+            else
             {
                 cout << "hoang tu da vuot qua cong: " << i + 1;
             }
@@ -105,7 +113,7 @@ int main()
                 cout << "hoang tu da chet tai: " << i + 1;
                 break;
             }
-            else 
+            else
             {
                 cout << "hoang tu da vuot qua cong: " << i + 1;
             }
@@ -118,7 +126,7 @@ int main()
                 cout << "hoang tu da chet tai: " << i + 1;
                 break;
             }
-            else 
+            else
             {
                 cout << "huong tu da vuot qua cong: " << i + 1;
             }
