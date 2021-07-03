@@ -4,15 +4,12 @@ using namespace std;
 
 class Cong
 {
-protected:
-    int loai;
-
 public:
     Cong() {}
     ~Cong() {}
     virtual void Nhap() = 0;
     virtual int Xuat() = 0;
-    int LayLoai() { return loai; }
+    virtual int LayLoai() = 0;
 };
 
 class CongTien : public Cong
@@ -32,6 +29,7 @@ public:
         cin >> hang;
     }
     int Xuat() { return gia * hang; }
+    int LayLoai() { return 1; }
 };
 
 class CongTriTue : public Cong
@@ -48,6 +46,7 @@ public:
         cin >> tritue;
     }
     int Xuat() { return tritue; }
+    int LayLoai() { return 2; }
 };
 
 class CongSucManh : public Cong
@@ -64,6 +63,7 @@ public:
         cin >> sucmanh;
     }
     int Xuat() { return sucmanh; }
+    int LayLoai() { return 3; }
 };
 
 int main()
@@ -74,9 +74,10 @@ int main()
     cout << "Nhap so luong cong: ";
     cin >> SoLuongCong;
     Cong *arr[SoLuongCong];
+    int loai;
     for (int i = 0; i < SoLuongCong; ++i)
     {
-        int loai;
+        cout << "Nhap loai cong: ";
         cin >> loai;
         if (loai == 1)
             arr[i] = new CongTien();
@@ -88,34 +89,34 @@ int main()
     }
     //cau B
     int htTien, htSucManh, htTriTue;
-    cout << "Nhap thong so cua hoang tu: ";
-    cin >> htTien >> htSucManh >> htTriTue;
+    cout << "Nhap 3 thong so cua hoang tu: ";
+    cin >> htTien >> htTriTue >> htSucManh;
     int i = 0;
-    while ((i < SoLuongCong) and (htTien > 0) and (htTriTue > 0) and (htSucManh > 0))
+    while ((i < SoLuongCong) and (htTien >= 0) and (htTriTue >= 0) and (htSucManh >= 0))
     {
         if (arr[i]->LayLoai() == 1)
         {
             htTien -= arr[i]->Xuat();
             if (htTien < 0)
             {
-                cout << "hoang tu da chet tai: " << i + 1;
+                cout << "hoang tu da chet tai: " << i + 1 << "\n";
                 break;
             }
             else
             {
-                cout << "hoang tu da vuot qua cong: " << i + 1;
+                cout << "hoang tu da vuot qua cong: " << i + 1 << "\n";
             }
         }
         if (arr[i]->LayLoai() == 2)
         {
             if (arr[i]->Xuat() > htTriTue)
             {
-                cout << "hoang tu da chet tai: " << i + 1;
+                cout << "hoang tu da chet tai: " << i + 1 << "\n";
                 break;
             }
             else
             {
-                cout << "hoang tu da vuot qua cong: " << i + 1;
+                cout << "hoang tu da vuot qua cong: " << i + 1 << "\n";
             }
         }
         if (arr[i]->LayLoai() == 3)
@@ -123,12 +124,12 @@ int main()
             htSucManh -= arr[i]->Xuat();
             if (htSucManh < 0)
             {
-                cout << "hoang tu da chet tai: " << i + 1;
+                cout << "hoang tu da chet tai: " << i + 1 << "\n";
                 break;
             }
             else
             {
-                cout << "huong tu da vuot qua cong: " << i + 1;
+                cout << "huong tu da vuot qua cong: " << i + 1 << "\n";
             }
         }
         if (i >= (SoLuongCong - 1))
