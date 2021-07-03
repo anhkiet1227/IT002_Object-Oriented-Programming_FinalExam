@@ -1,14 +1,13 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-
 class Base
 {
 private:
-	int He;// 0. KIm, 1. Moc , 2. Thuy, 3.Hoa,4. Tho
+	int He; // 0. KIm, 1. Moc , 2. Thuy, 3.Hoa,4. Tho
 	double Satthuong;
-public:
 
+public:
 	Base();
 	~Base();
 	virtual void nhap();
@@ -25,7 +24,6 @@ public:
 	void setHe(int m)
 	{
 		He = m;
-		
 	}
 	int getHe()
 	{
@@ -46,11 +44,21 @@ void Base::xuat()
 	cout << "He ngu hanh:" << endl;
 	switch (He)
 	{
-	case 0: cout << "He Kim" << endl; break;
-	case 1: cout << "He Moc" << endl; break;
-	case 2: cout << "He Thuy" << endl; break;
-	case 3: cout << "He Hoa" << endl; break;
-	case 4: cout << "He Tho" << endl; break;
+	case 0:
+		cout << "He Kim" << endl;
+		break;
+	case 1:
+		cout << "He Moc" << endl;
+		break;
+	case 2:
+		cout << "He Thuy" << endl;
+		break;
+	case 3:
+		cout << "He Hoa" << endl;
+		break;
+	case 4:
+		cout << "He Tho" << endl;
+		break;
 	}
 	cout << "Sat thuong" << Satthuong << endl;
 }
@@ -58,17 +66,17 @@ bool Base::tinhTuongtac(Base &b)
 {
 	double STtuongtacAB = this->getST();
 	double STtuongtacBA = b.getST();
-	if ((this->He == 0 && b.getHe() == 1) || 
-		(this->He == 1 && b.getHe() == 4)||
-		(this->He == 2 && b.getHe() == 3)||
-		(this->He == 3 && b.getHe() == 0)||
+	if ((this->He == 0 && b.getHe() == 1) ||
+		(this->He == 1 && b.getHe() == 4) ||
+		(this->He == 2 && b.getHe() == 3) ||
+		(this->He == 3 && b.getHe() == 0) ||
 		(this->He == 4 && b.getHe() == 2))
 	{
 		STtuongtacAB = this->getST() * 120 / 100;
 		STtuongtacBA = b.getST() * 80 / 100;
-
 	}
-	else {
+	else
+	{
 		if ((b.getHe() == 0 && this->He == 1) ||
 			(b.getHe() == 1 && this->He == 4) ||
 			(b.getHe() == 2 && this->He == 3) ||
@@ -79,16 +87,15 @@ bool Base::tinhTuongtac(Base &b)
 			STtuongtacAB = b.getST() * 80 / 100;
 		}
 	}
-	if ((this->He == 0 && b.getHe() == 2)||
-		(this->He == 1 && b.getHe() == 3)||
-		(this->He == 2 && b.getHe() == 1)||
-		(this->He == 3 && b.getHe() == 4)||
+	if ((this->He == 0 && b.getHe() == 2) ||
+		(this->He == 1 && b.getHe() == 3) ||
+		(this->He == 2 && b.getHe() == 1) ||
+		(this->He == 3 && b.getHe() == 4) ||
 		(this->He == 4 && b.getHe() == 0))
-		
+
 	{
 		STtuongtacAB = this->getST() * 110 / 100;
 	}
-	
 
 	if (STtuongtacAB > STtuongtacBA)
 		return true;
@@ -100,6 +107,7 @@ class NhanVat : public Base
 private:
 	char Monphai[40];
 	int cap;
+
 public:
 	NhanVat();
 	virtual ~NhanVat();
@@ -116,14 +124,18 @@ void NhanVat::nhap()
 	//
 	switch (Base::getHe())
 	{
-	case 0: 
+	case 0:
 	{
 		cout << "Chon mon phai: 0.Thieu lam 1.Thien vuong " << endl;
 		cin >> chose;
 		switch (chose)
 		{
-		case 0: strcpy(Monphai, "Thieu lam");  break;
-		case 1: strcpy(Monphai, "Thien vuong"); break;
+		case 0:
+			strcpy(Monphai, "Thieu lam");
+			break;
+		case 1:
+			strcpy(Monphai, "Thien vuong");
+			break;
 		}
 		break;
 	}
@@ -133,8 +145,12 @@ void NhanVat::nhap()
 		cin >> chose;
 		switch (chose)
 		{
-		case 0: strcpy(Monphai, "Ngu doc");  break;
-		case 1: strcpy(Monphai, "Duong mon"); break;
+		case 0:
+			strcpy(Monphai, "Ngu doc");
+			break;
+		case 1:
+			strcpy(Monphai, "Duong mon");
+			break;
 		}
 		break;
 	}
@@ -144,8 +160,12 @@ void NhanVat::nhap()
 		cin >> chose;
 		switch (chose)
 		{
-		case 0: strcpy(Monphai, "Nga my");  break;
-		case 1: strcpy(Monphai, "Thuy yen"); break;
+		case 0:
+			strcpy(Monphai, "Nga my");
+			break;
+		case 1:
+			strcpy(Monphai, "Thuy yen");
+			break;
 		}
 		break;
 	}
@@ -155,8 +175,12 @@ void NhanVat::nhap()
 		cin >> chose;
 		switch (chose)
 		{
-		case 0: strcpy(Monphai, "Cai bang");  break;
-		case 1: strcpy(Monphai, "Thien nhan"); break;
+		case 0:
+			strcpy(Monphai, "Cai bang");
+			break;
+		case 1:
+			strcpy(Monphai, "Thien nhan");
+			break;
 		}
 		break;
 	}
@@ -166,13 +190,17 @@ void NhanVat::nhap()
 		cin >> chose;
 		switch (chose)
 		{
-		case 0: strcpy(Monphai, "Con lon");  break;
-		case 1: strcpy(Monphai, "Vo dang"); break;
+		case 0:
+			strcpy(Monphai, "Con lon");
+			break;
+		case 1:
+			strcpy(Monphai, "Vo dang");
+			break;
 		}
 		break;
 	}
 	}
-	cout << "Nhap vao cap do nhan vat"<<endl;
+	cout << "Nhap vao cap do nhan vat" << endl;
 	cin >> cap;
 	Base::setST(cap * 5);
 }
@@ -207,9 +235,14 @@ void Quai::nhap()
 	cin >> Loai;
 	switch (Loai)
 	{
-	case 0: Base::setST(cap * 3); break;
-	case 1:Base::setST(cap * 7); break;
-	default:Base::setST(cap * 3);
+	case 0:
+		Base::setST(cap * 3);
+		break;
+	case 1:
+		Base::setST(cap * 7);
+		break;
+	default:
+		Base::setST(cap * 3);
 	}
 }
 void Quai::xuat()
@@ -217,8 +250,12 @@ void Quai::xuat()
 	Base::xuat();
 	switch (Loai)
 	{
-	case 0: cout << "Thuong" << endl; break;
-	case 1:cout << "Boss" << endl; break;
+	case 0:
+		cout << "Thuong" << endl;
+		break;
+	case 1:
+		cout << "Boss" << endl;
+		break;
 	}
 	cout << cap << endl;
 }
@@ -227,7 +264,8 @@ class QuanLy
 {
 private:
 	int n;
-	Base ** danhsach;
+	Base **danhsach;
+
 public:
 	QuanLy();
 	~QuanLy();
@@ -251,11 +289,16 @@ void QuanLy::nhap()
 		cin >> chon;
 		switch (chon)
 		{
-		case 0: danhsach[i] = new NhanVat; danhsach[i]->nhap(); break;
-		case 1:danhsach[i] = new Quai; danhsach[i]->nhap(); break;
+		case 0:
+			danhsach[i] = new NhanVat;
+			danhsach[i]->nhap();
+			break;
+		case 1:
+			danhsach[i] = new Quai;
+			danhsach[i]->nhap();
+			break;
 		}
 	}
-
 }
 
 void QuanLy::xuat()
@@ -268,14 +311,13 @@ void QuanLy::xuat()
 void QuanLy::tuongtac()
 {
 	int x, y;
-	cout << "chon phan tu tuong tac"<<endl;
+	cout << "chon phan tu tuong tac" << endl;
 	cin >> x >> y;
-	bool flag = danhsach[x]->tinhTuongtac(* danhsach[y]);
+	bool flag = danhsach[x]->tinhTuongtac(*danhsach[y]);
 	if (flag)
 		cout << "x co st tuong tac cao hon y";
 	else
 		cout << "y co st tuong tac cao hon x";
-
 }
 void QuanLy::timSTLN()
 {
@@ -291,7 +333,6 @@ void QuanLy::timSTLN()
 	}
 	cout << "Phan tu co sat thuong lon nhat" << index << " " << max;
 }
-
 
 int main()
 {
