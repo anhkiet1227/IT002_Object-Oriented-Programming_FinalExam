@@ -8,6 +8,7 @@ protected:
     string text;
     int mauText;
     int mauNen;
+
 public:
     ThanhPhan();
     virtual ~ThanhPhan();
@@ -21,7 +22,6 @@ ThanhPhan::ThanhPhan()
     text = "";
     mauNen = 0;
     mauText = 0;
-
 }
 
 ThanhPhan::~ThanhPhan() {}
@@ -54,8 +54,8 @@ int ThanhPhan::getMauText()
 class Nhan : public ThanhPhan
 {
 public:
-    Nhan() {};
-    ~Nhan() {};
+    Nhan(){};
+    ~Nhan(){};
     void nhap()
     {
         cout << "Nhap label: \n";
@@ -66,8 +66,8 @@ public:
 class Nut : public ThanhPhan
 {
 public:
-    Nut() {};
-    ~Nut() {};
+    Nut(){};
+    ~Nut(){};
     void nhap()
     {
         cout << "Nhap button: \n";
@@ -97,13 +97,13 @@ bool isMauBoTuc(int x, int y)
 
 bool isMauTuongDong(int x, int y, int z) // x, y, z tang dan
 {
-    int data[15] = { 0,1,2,3,4,5,6,7,8,9,10,11,12,1,2 };
+    int data[15] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2};
     return (data[x + 1] == y && data[x + 2] == z);
 }
 
 int main()
 {
-    ThanhPhan* DS[1000];
+    ThanhPhan *DS[1000];
     int n;
     cout << "Nhap so luong thanh phan : ";
     cin >> n;
@@ -118,7 +118,8 @@ int main()
         else
             DS[i] = new Nut();
         DS[i]->nhap();
-        cout << endl << endl;
+        cout << endl
+             << endl;
     }
 
     //cau b
@@ -142,13 +143,11 @@ int main()
     cout << "Mau nen cac thanh phan: ";
     if (spt == 1)
         cout << "Theo nguyen tac: mau don sac\n";
+    else if (spt == 2 && isMauBoTuc(mau[0], mau[1]))
+        cout << "Theo nguyen tac: Mau bo tuc\n";
+    else if (spt == 3 && isMauTuongDong(mau[0], mau[1], mau[2]))
+        cout << "Theo nguyen tac: Mau tuong dong\n";
     else
-        if (spt == 2 && isMauBoTuc(mau[0], mau[1]))
-            cout << "Theo nguyen tac: Mau bo tuc\n";
-        else
-            if (spt == 3 && isMauTuongDong(mau[0], mau[1], mau[2]))
-                cout << "Theo nguyen tac: Mau tuong dong\n";
-            else
-                cout << "Khong theo nguyen tac nao!\n";
+        cout << "Khong theo nguyen tac nao!\n";
     return 0;
 }
