@@ -6,6 +6,7 @@ class NhomMau
 {
 protected:
     bool Rh;
+
 public:
     NhomMau();
     ~NhomMau();
@@ -68,17 +69,21 @@ bool NhomA::KTDiTruyen(char me, char con)
 {
     switch (me)
     {
-    case 'A': if (con == 'A' || con == 'O')
-        return true;
+    case 'A':
+        if (con == 'A' || con == 'O')
+            return true;
         break;
-    case 'B': if (con == 'A' || con == 'O' || con == 'B' || con == 'C')
-        return true;
+    case 'B':
+        if (con == 'A' || con == 'O' || con == 'B' || con == 'C')
+            return true;
         break;
-    case 'C': if (con == 'A' || con == 'B' || con == 'C')
-        return true;
+    case 'C':
+        if (con == 'A' || con == 'B' || con == 'C')
+            return true;
         break;
-    case 'O': if (con == 'A' || con == 'O')
-        return true;
+    case 'O':
+        if (con == 'A' || con == 'O')
+            return true;
         break;
     }
     return false;
@@ -116,25 +121,29 @@ bool NhomB::TuongThich(char nm, bool b)
 
 bool NhomB::KTDiTruyen(char me, char con)
 {
-    switch (me) {
-    case 'A': if (con == 'A' || con == 'O' || con == 'B' || con == 'C')
-        return true;
+    switch (me)
+    {
+    case 'A':
+        if (con == 'A' || con == 'O' || con == 'B' || con == 'C')
+            return true;
         break;
-    case 'B': if (con == 'B' || con == 'O')
-        return true;
+    case 'B':
+        if (con == 'B' || con == 'O')
+            return true;
         break;
-    case 'C': if (con == 'A' || con == 'B' || con == 'C')
-        return true;
+    case 'C':
+        if (con == 'A' || con == 'B' || con == 'C')
+            return true;
         break;
-    case 'O': if (con == 'B' || con == 'O')
-        return true;
+    case 'O':
+        if (con == 'B' || con == 'O')
+            return true;
         break;
     }
     return false;
 }
 
-class NhomAB :
-    public NhomMau
+class NhomAB : public NhomMau
 {
 public:
     NhomAB();
@@ -166,25 +175,29 @@ bool NhomAB::TuongThich(char nm, bool b)
 
 bool NhomAB::KTDiTruyen(char me, char con)
 {
-    switch (me) {
-    case 'A': if (con == 'A' || con == 'B' || con == 'C')
-        return true;
+    switch (me)
+    {
+    case 'A':
+        if (con == 'A' || con == 'B' || con == 'C')
+            return true;
         break;
-    case 'B': if (con == 'A' || con == 'B' || con == 'C')
-        return true;
+    case 'B':
+        if (con == 'A' || con == 'B' || con == 'C')
+            return true;
         break;
-    case 'C': if (con == 'A' || con == 'B' || con == 'C')
-        return true;
+    case 'C':
+        if (con == 'A' || con == 'B' || con == 'C')
+            return true;
         break;
-    case 'O': if (con == 'A' || con == 'B')
-        return true;
+    case 'O':
+        if (con == 'A' || con == 'B')
+            return true;
         break;
     }
     return false;
 }
 
-class NhomO :
-    public NhomMau
+class NhomO : public NhomMau
 {
 public:
     NhomO();
@@ -194,23 +207,28 @@ public:
     bool TuongThich(char nm, bool b);
 };
 
-NhomO::NhomO(){}
-NhomO::~NhomO(){}
+NhomO::NhomO() {}
+NhomO::~NhomO() {}
 
 bool NhomO::KTDiTruyen(char me, char con)
 {
-    switch (me) {
-    case 'A': if (con == 'A' || con == 'O')
-        return true;
+    switch (me)
+    {
+    case 'A':
+        if (con == 'A' || con == 'O')
+            return true;
         break;
-    case 'B': if (con == 'B' || con == 'O')
-        return true;
+    case 'B':
+        if (con == 'B' || con == 'O')
+            return true;
         break;
-    case 'C': if (con == 'A' || con == 'B')
-        return true;
+    case 'C':
+        if (con == 'A' || con == 'B')
+            return true;
         break;
-    case 'O': if (con == 'O')
-        return true;
+    case 'O':
+        if (con == 'O')
+            return true;
         break;
     }
     return false;
@@ -234,7 +252,7 @@ int main()
 {
     //Cau 1
     int n, chon;
-    NhomMau* list[50];
+    NhomMau *list[50];
     cout << "Nhap so nguoi";
     cin >> n;
     for (int i = 0; i < n; i++)
@@ -244,14 +262,19 @@ int main()
         cout << "Hay chon 3 cho nguoi nhom mau B";
         cout << "Hay chon 4 cho nguoi nhom mau AB";
         cin >> chon;
-        switch (chon) {
-        case 1: list[i] = new NhomO();
+        switch (chon)
+        {
+        case 1:
+            list[i] = new NhomO();
             break;
-        case 2: list[i] = new NhomA();
+        case 2:
+            list[i] = new NhomA();
             break;
-        case 3: list[i] = new NhomB();
+        case 3:
+            list[i] = new NhomB();
             break;
-        case 4: list[i] = new NhomAB();
+        case 4:
+            list[i] = new NhomAB();
             break;
         }
         list[i]->Nhap();
