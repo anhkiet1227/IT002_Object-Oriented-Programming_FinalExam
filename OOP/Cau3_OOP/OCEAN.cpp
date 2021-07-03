@@ -6,6 +6,7 @@ class YeuTo
 {
 protected:
 	int GiaTri;
+
 public:
 	YeuTo();
 	~YeuTo();
@@ -24,8 +25,7 @@ int YeuTo::GetGiaTri()
 {
 	return GiaTri;
 }
-class O :
-	public YeuTo
+class O : public YeuTo
 {
 public:
 	O();
@@ -57,8 +57,7 @@ void O::ChiSoThap()
 {
 	cout << "Nguoi co chi so thaps o yeu to nay thuong la nguoi kha bao thu ...";
 }
-class C :
-	public YeuTo
+class C : public YeuTo
 {
 public:
 	C();
@@ -90,8 +89,7 @@ void C::ChiSoThap()
 {
 	cout << "Nguoi co chi so thap o yeu to nay thuong la nguoi de bo cuoc ...";
 }
-class E :
-	public YeuTo
+class E : public YeuTo
 {
 public:
 	E();
@@ -123,8 +121,7 @@ void E::ChiSoThap()
 {
 	cout << "Nguoi co chi so thap o yeu to nay thuong la ngai giao tieps ...";
 }
-class A :
-	public YeuTo
+class A : public YeuTo
 {
 public:
 	A();
@@ -156,8 +153,7 @@ void A::ChiSoThap()
 {
 	cout << "Nguoi co chi so thap o yeu to nay thuong dat loi ich cua ban than len tren ...";
 }
-class N :
-	public YeuTo
+class N : public YeuTo
 {
 public:
 	N();
@@ -192,7 +188,8 @@ void N::ChiSoThap()
 class Nguoi
 {
 private:
-	YeuTo* ds[5];
+	YeuTo *ds[5];
+
 public:
 	Nguoi();
 	~Nguoi();
@@ -232,11 +229,10 @@ void Nguoi::TinhCach()
 		ds[i]->DacDiem();
 		if (ds[i]->GetGiaTri() >= 70)
 			ds[i]->ChiSoCao();
+		else if (ds[i]->GetGiaTri() <= 30)
+			ds[i]->ChiSoThap();
 		else
-			if (ds[i]->GetGiaTri() <= 30)
-				ds[i]->ChiSoThap();
-			else
-				cout << "Khong xac dinh ro";
+			cout << "Khong xac dinh ro";
 	}
 }
 bool Nguoi::NguyCo()
