@@ -136,7 +136,7 @@ int main()
         {
             cout << "hoang tu da cuu duoc cong chua\n";
         }
-        cout << "thong so hien tai: " << htTien << "\t" << htTriTue << "\t" << htSucManh << "\t";
+        cout << "thong so hien tai: " << htTien << "\t" << htTriTue << "\t" << htSucManh << "\t\n";
         ++i;
     }
     return 0;
