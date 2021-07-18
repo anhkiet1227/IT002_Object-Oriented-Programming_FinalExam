@@ -4,6 +4,8 @@ using namespace std;
 
 class Cong
 {
+protected:
+    int loai;
 public:
     Cong() {}
     ~Cong() {}
@@ -19,7 +21,7 @@ protected:
     int hang;
 
 public:
-    CongTien() {}
+    CongTien() { loai = 1;}
     ~CongTien() {}
     void Nhap()
     {
@@ -29,7 +31,7 @@ public:
         cin >> hang;
     }
     int Xuat() { return gia * hang; }
-    int LayLoai() { return 1; }
+    int LayLoai() { return loai; }
 };
 
 class CongTriTue : public Cong
@@ -38,7 +40,7 @@ protected:
     int tritue;
 
 public:
-    CongTriTue() {}
+    CongTriTue() { loai = 2;}
     ~CongTriTue() {}
     void Nhap()
     {
@@ -46,7 +48,7 @@ public:
         cin >> tritue;
     }
     int Xuat() { return tritue; }
-    int LayLoai() { return 2; }
+    int LayLoai() { return loai; }
 };
 
 class CongSucManh : public Cong
@@ -55,7 +57,7 @@ protected:
     int sucmanh;
 
 public:
-    CongSucManh() {}
+    CongSucManh() { loai = 3;}
     ~CongSucManh() {}
     void Nhap()
     {
@@ -63,7 +65,7 @@ public:
         cin >> sucmanh;
     }
     int Xuat() { return sucmanh; }
-    int LayLoai() { return 3; }
+    int LayLoai() { return loai; }
 };
 
 int main()
@@ -74,16 +76,16 @@ int main()
     cout << "Nhap so luong cong: ";
     cin >> SoLuongCong;
     Cong *arr[SoLuongCong];
-    int loai;
+    int tmp;
     for (int i = 0; i < SoLuongCong; ++i)
     {
         cout << "Nhap loai cong: ";
-        cin >> loai;
-        if (loai == 1)
+        cin >> tmp;
+        if (tmp == 1)
             arr[i] = new CongTien();
-        if (loai == 2)
+        if (tmp == 2)
             arr[i] = new CongTriTue();
-        if (loai == 3)
+        if (tmp == 3)
             arr[i] = new CongSucManh();
         arr[i]->Nhap();
     }
